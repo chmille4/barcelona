@@ -5,26 +5,46 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="jquery.countdown.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
+    
+       function pad(number, digits) {
+            
+            return (number < digits ? '0' : '') + number
+
+       }
+       
       $(function(){
+         var today = new Date();
+         var departure = new Date(2015, 0, 1);
+         var diff = new Date(departure.getTime() - today.getTime());
+         var year = diff.getFullYear() - 1970;
+         var days = (diff.getMonth()+1) * 30 + diff.getDate()+1;
+         var hours = diff.getHours();
+         var minutes = diff.getMinutes();
+         var seconds = diff.getSeconds();
+         var time = pad(year,10) + ":" + pad(days,100) + ":" + pad(hours,10) + ":" + pad(minutes,10) + ":" + pad(seconds,10);
+         
         $('#counter').countdown({
           image: 'digits1.png',
-          startTime: '03:00:00:00:02'
+          startTime: time
         });
       });
     </script>
     <style type="text/css">
+     #counter {
+        margin-left: -50px;
+     }
       br { clear: both; }
       .cntSeparator {
         font-size: 54px;
         margin: 10px 7px;
         color: #000;
       }
-      .desc { margin: 7px 3px; }
+      .desc { margin-left: -50px; margin-top: 7px; text-align: center;}
       .desc div {
         float: left;
         font-family: ubuntu;
-        width: 70px;
-        margin-right: 65px;
+        width: 120px;
+        margin-right: 27px;
         font-size: 13px;
         font-weight: bold;
         color: #000;
