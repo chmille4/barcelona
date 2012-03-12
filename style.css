@@ -1,0 +1,14 @@
+body {
+   background: black;
+   background-image: url("bg.jpg");
+   background-repeat: no-repeat;
+   background-position: center top;
+   text-align: center;
+}
+
+#content {
+   margin-top: 50px;
+   width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+}
